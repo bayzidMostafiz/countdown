@@ -3,27 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Countdown Timer</title>
+  <title>Multiple Countdown Timers</title>
   <style>
     body {
       font-family: "Poppins", sans-serif;
       background: #0d1117;
       color: #fff;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+      gap: 60px;
+    }
+
+    .section {
+      text-align: center;
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 28px;
       margin-bottom: 20px;
     }
 
     .timer {
       display: flex;
       gap: 20px;
+      justify-content: center;
       font-size: 2em;
     }
 
@@ -44,38 +49,74 @@
   </style>
 </head>
 <body>
-  <h1>Countdown to 27 November 2025, 6:30 PM</h1>
-  <div class="timer">
-    <div><p id="days">00</p><span>Days</span></div>
-    <div><p id="hours">00</p><span>Hours</span></div>
-    <div><p id="minutes">00</p><span>Minutes</span></div>
-    <div><p id="seconds">00</p><span>Seconds</span></div>
+
+  <h1 style="font-size:80px;">Project Bye-Byte</h1>
+  <div class="section" id="count2">
+    <h1>Countdown to 13 November 2025, 6:30 PM</h1>
+    <div class="timer">
+      <div><p class="days">00</p><span>Days</span></div>
+      <div><p class="hours">00</p><span>Hours</span></div>
+      <div><p class="minutes">00</p><span>Minutes</span></div>
+      <div><p class="seconds">00</p><span>Seconds</span></div>
+    </div>
+  </div>
+
+  <div class="section" id="count1">
+    <h1>Countdown to 27 November 2025, 6:30 PM</h1>
+    <div class="timer">
+      <div><p class="days">00</p><span>Days</span></div>
+      <div><p class="hours">00</p><span>Hours</span></div>
+      <div><p class="minutes">00</p><span>Minutes</span></div>
+      <div><p class="seconds">00</p><span>Seconds</span></div>
+    </div>
+  </div>
+
+  <div class="section" id="count3">
+    <h1>Countdown to 30 November 2025, 6:30 PM</h1>
+    <div class="timer">
+      <div><p class="days">00</p><span>Days</span></div>
+      <div><p class="hours">00</p><span>Hours</span></div>
+      <div><p class="minutes">00</p><span>Minutes</span></div>
+      <div><p class="seconds">00</p><span>Seconds</span></div>
+    </div>
   </div>
 
   <script>
-    // Set the target date and time
-    const targetDate = new Date("November 27, 2025 18:30:00").getTime();
+    // Timer function
+    function createCountdown(sectionId, targetDate) {
+      const section = document.querySelector(sectionId);
+      const daysEl = section.querySelector(".days");
+      const hoursEl = section.querySelector(".hours");
+      const minutesEl = section.querySelector(".minutes");
+      const secondsEl = section.querySelector(".seconds");
 
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
+      const timer = setInterval(() => {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
 
-      if (diff <= 0) {
-        clearInterval(timer);
-        document.querySelector(".timer").innerHTML = "<h2>Time’s up!</h2>";
-        return;
-      }
+        if (diff <= 0) {
+          clearInterval(timer);
+          section.querySelector(".timer").innerHTML = "<h2>Time’s up!</h2>";
+          return;
+        }
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      document.getElementById("days").innerText = days.toString().padStart(2, "0");
-      document.getElementById("hours").innerText = hours.toString().padStart(2, "0");
-      document.getElementById("minutes").innerText = minutes.toString().padStart(2, "0");
-      document.getElementById("seconds").innerText = seconds.toString().padStart(2, "0");
-    }, 1000);
+        daysEl.innerText = days.toString().padStart(2, "0");
+        hoursEl.innerText = hours.toString().padStart(2, "0");
+        minutesEl.innerText = minutes.toString().padStart(2, "0");
+        secondsEl.innerText = seconds.toString().padStart(2, "0");
+      }, 1000);
+    }
+
+    // Initialize countdowns
+    createCountdown("#count2", new Date("November 13, 2025 18:30:00").getTime());
+    createCountdown("#count1", new Date("November 27, 2025 18:30:00").getTime());
+    createCountdown("#count3", new Date("November 30, 2025 18:30:00").getTime());
   </script>
+
 </body>
 </html>
