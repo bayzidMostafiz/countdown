@@ -1,121 +1,181 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multiple Countdown Timers</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Bye-Byte — Countdown Cards</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: #0d1117;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 50px 20px;
-      gap: 60px;
-    }
-
-    .section {
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    .timer {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      font-size: 2em;
-    }
-
-    .timer div {
-      background: #161b22;
-      padding: 20px 30px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(255,255,255,0.1);
-    }
-
-    .timer span {
-      display: block;
-      font-size: 0.4em;
-      margin-top: 8px;
-      color: #ccc;
+    /* Small enhancement for number styling */
+    .timer-number {
+      font-variant-numeric: tabular-nums;
     }
   </style>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800 antialiased">
 
-  <h1 style="font-size:80px;">Project Bye-Byte</h1>
-  <div class="section" id="count2">
-    <h1>Countdown to 13 November 2025, 6:30 PM</h1>
-    <div class="timer">
-      <div><p class="days">00</p><span>Days</span></div>
-      <div><p class="hours">00</p><span>Hours</span></div>
-      <div><p class="minutes">00</p><span>Minutes</span></div>
-      <div><p class="seconds">00</p><span>Seconds</span></div>
-    </div>
-  </div>
+  <header class="max-w-6xl mx-auto p-6">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Mission Bye-Bye</h1>
+  </header>
 
-  <div class="section" id="count1">
-    <h1>Countdown to 27 November 2025, 6:30 PM</h1>
-    <div class="timer">
-      <div><p class="days">00</p><span>Days</span></div>
-      <div><p class="hours">00</p><span>Hours</span></div>
-      <div><p class="minutes">00</p><span>Minutes</span></div>
-      <div><p class="seconds">00</p><span>Seconds</span></div>
-    </div>
-  </div>
+  <main class="max-w-6xl mx-auto px-4 pb-12">
+    <!-- 3-column grid -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-  <div class="section" id="count3">
-    <h1>Countdown to 30 November 2025, 6:30 PM</h1>
-    <div class="timer">
-      <div><p class="days">00</p><span>Days</span></div>
-      <div><p class="hours">00</p><span>Hours</span></div>
-      <div><p class="minutes">00</p><span>Minutes</span></div>
-      <div><p class="seconds">00</p><span>Seconds</span></div>
-    </div>
-  </div>
+      <!-- Card 1 -->
+      <article class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+        <div>
+          <h2 class="text-lg font-semibold text-gray-700">Countdown to 13 November 2025, 6:30 PM</h2>
 
+          <div class="timer mt-6 grid grid-cols-4 gap-4 text-center">
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="days text-4xl font-bold timer-number">00</p>
+              <span class="text-sm text-gray-500">Days</span>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="hours text-4xl font-bold timer-number">00</p>
+              <span class="text-sm text-gray-500">Hours</span>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="minutes text-4xl font-bold timer-number">00</p>
+              <span class="text-sm text-gray-500">Minutes</span>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="seconds text-4xl font-bold timer-number">00</p>
+              <span class="text-sm text-gray-500">Seconds</span>
+            </div>
+          </div>
+        </div>
+
+        <footer class="mt-6 pt-4 border-t border-gray-100 flex items-center gap-4">
+          <div class="flex-1">
+            <p class="font-medium text-gray-900">Md. Farid Hossain</p>
+            <p class="text-sm text-gray-500">Manager, Software web & Cyber Security Department</p>
+          </div>
+          <div class="text-sm text-gray-400">📅 13 Nov 2025</div>
+        </footer>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+        <div>
+          <h2 class="text-lg font-semibold text-gray-700">Countdown to 27 November 2025, 6:30 PM</h2>
+
+          <div class="timer mt-6 grid grid-cols-4 gap-4 text-center">
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="days text-4xl font-bold timer-number">00</p>
+              <span class="text-sm text-gray-500">Days</span>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="hours text-4xl font-bold timer-number">00</p>
+              <span class="text-sm text-gray-500">Hours</span>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="minutes text-4xl font-bold timer-number">00</p>
+              <span class="text-sm text-gray-500">Minutes</span>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="seconds text-4xl font-bold timer-number">00</p>
+              <span class="text-sm text-gray-500">Seconds</span>
+            </div>
+          </div>
+        </div>
+
+        <footer class="mt-6 pt-4 border-t border-gray-100 flex items-center gap-4">
+          <div class="flex-1">
+            <p class="font-medium text-gray-900">Md. Bayzid Mostafiz</p>
+            <p class="text-sm text-gray-500">Developer</p>
+          </div>
+          <div class="text-sm text-gray-400">📅 27 Nov 2025</div>
+        </footer>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
+        <div>
+          <h2 class="text-lg font-semibold text-gray-700">Countdown to 30 November 2025, 6:30 PM</h2>
+
+          <div class="timer mt-6 grid grid-cols-4 gap-4 text-center">
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="days text-4xl font-bold timer-number">00</p>
+              <span class="text-sm text-gray-500">Days</span>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="hours text-4xl font-bold timer-number">00</p>
+              <span class="text-sm text-gray-500">Hours</span>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="minutes text-4xl font-bold timer-number">00</p>
+              <span class="text-sm text-gray-500">Minutes</span>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="seconds text-4xl font-bold timer-number">00</p>
+              <span class="text-sm text-gray-500">Seconds</span>
+            </div>
+          </div>
+        </div>
+
+        <footer class="mt-6 pt-4 border-t border-gray-100 flex items-center gap-4">
+          <div class="flex-1">
+            <p class="font-medium text-gray-900">Mayinuddin Munna</p>
+            <p class="text-sm text-gray-500">Full Stack Developer</p>
+          </div>
+          <div class="text-sm text-gray-400">📅 30 Nov 2025</div>
+        </footer>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Countdown script -->
   <script>
-    // Timer function
-    function createCountdown(sectionId, targetDate) {
-      const section = document.querySelector(sectionId);
-      const daysEl = section.querySelector(".days");
-      const hoursEl = section.querySelector(".hours");
-      const minutesEl = section.querySelector(".minutes");
-      const secondsEl = section.querySelector(".seconds");
+    // Targets are explicit ISO strings with timezone offset for Asia/Dhaka (UTC+06:00).
+    const targets = [
+      { selectorRoot: document.querySelectorAll('.timer')[0], iso: '2025-11-13T18:30:00+06:00' },
+      { selectorRoot: document.querySelectorAll('.timer')[1], iso: '2025-11-27T18:30:00+06:00' },
+      { selectorRoot: document.querySelectorAll('.timer')[2], iso: '2025-11-30T18:30:00+06:00' },
+    ];
 
-      const timer = setInterval(() => {
-        const now = new Date().getTime();
-        const diff = targetDate - now;
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateAllCountdowns() {
+      const now = new Date();
+      targets.forEach(t => {
+        const root = t.selectorRoot;
+        if (!root) return;
+
+        const targetDate = new Date(t.iso); // uses timezone offset in ISO string
+        let diff = targetDate - now;
 
         if (diff <= 0) {
-          clearInterval(timer);
-          section.querySelector(".timer").innerHTML = "<h2>Time’s up!</h2>";
+          // expired
+          root.querySelector('.days').textContent = '00';
+          root.querySelector('.hours').textContent = '00';
+          root.querySelector('.minutes').textContent = '00';
+          root.querySelector('.seconds').textContent = '00';
           return;
         }
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        const secondsTotal = Math.floor(diff / 1000);
+        const days = Math.floor(secondsTotal / 86400);
+        const hours = Math.floor((secondsTotal % 86400) / 3600);
+        const minutes = Math.floor((secondsTotal % 3600) / 60);
+        const seconds = secondsTotal % 60;
 
-        daysEl.innerText = days.toString().padStart(2, "0");
-        hoursEl.innerText = hours.toString().padStart(2, "0");
-        minutesEl.innerText = minutes.toString().padStart(2, "0");
-        secondsEl.innerText = seconds.toString().padStart(2, "0");
-      }, 1000);
+        root.querySelector('.days').textContent = pad(days);
+        root.querySelector('.hours').textContent = pad(hours);
+        root.querySelector('.minutes').textContent = pad(minutes);
+        root.querySelector('.seconds').textContent = pad(seconds);
+      });
     }
 
-    // Initialize countdowns
-    createCountdown("#count2", new Date("November 13, 2025 18:30:00").getTime());
-    createCountdown("#count1", new Date("November 27, 2025 18:30:00").getTime());
-    createCountdown("#count3", new Date("November 30, 2025 18:30:00").getTime());
+    // initial update
+    updateAllCountdowns();
+    // update every second
+    setInterval(updateAllCountdowns, 1000);
   </script>
 
 </body>
