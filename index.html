@@ -45,26 +45,43 @@
         </footer>
       </article>
 
-      <!-- Existing Card 1 -->
-      <!-- Card 1 — MISSION FAILED -->
-      <article class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
-        <div>
-          <h2 class="text-lg font-semibold text-gray-700">The person is a permanent employee of TSPL</h2>
+      <!-- Card 1 — MISSION FAILED with corner-to-corner X -->
+      <!-- Card 1 — MISSION FAILED with proper corner-to-corner X -->
+<article class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between relative overflow-hidden">
+  <!-- X mark overlay -->
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- Left-top to right-bottom -->
+    <div class="absolute top-0 left-0 w-full h-full">
+      <svg width="100%" height="100%">
+        <line x1="0" y1="0" x2="100%" y2="100%" stroke="red" stroke-width="6"/>
+      </svg>
+    </div>
+    <!-- Left-bottom to right-top -->
+    <div class="absolute top-0 left-0 w-full h-full">
+      <svg width="100%" height="100%">
+        <line x1="0" y1="100%" x2="100%" y2="0" stroke="red" stroke-width="6"/>
+      </svg>
+    </div>
+  </div>
 
-          <div class="timer mt-6 text-center">
-            <p class="text-4xl font-extrabold text-red-600">MISSION FAILED</p>
-            <p class="text-lg text-red-500 mt-1">Try Again!</p>
-          </div>
-        </div>
+  <div class="relative z-10">
+    <h2 class="text-lg font-semibold text-gray-700">The person is a permanent employee of TSPL</h2>
 
-        <footer class="mt-6 pt-4 border-t border-gray-100 flex items-center gap-4">
-          <div class="flex-1">
-            <p class="font-medium text-gray-900">Md. Farid Hossain</p>
-            <p class="text-sm text-gray-500">Manager, Software web & Cyber Security Department</p>
-          </div>
-          <div class="text-sm text-gray-400">📅 13 Nov 2025</div>
-        </footer>
-      </article>
+    <div class="timer mt-6 text-center">
+      <p class="text-4xl font-extrabold text-red-600">MISSION FAILED</p>
+      <p class="text-lg text-red-500 mt-1">Try Again!</p>
+    </div>
+  </div>
+
+  <footer class="mt-6 pt-4 border-t border-gray-100 flex items-center gap-4 relative z-10">
+    <div class="flex-1">
+      <p class="font-medium text-gray-900">Md. Farid Hossain</p>
+      <p class="text-sm text-gray-500">Manager, Software web & Cyber Security Department</p>
+    </div>
+    <div class="text-sm text-gray-400">📅 13 Nov 2025</div>
+  </footer>
+</article>
+
 
       <!-- Existing Card 2 -->
       <article class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between">
@@ -206,64 +223,60 @@
   </main>
 
   <!-- Countdown script -->
- <script>
-  // Select all timers
-  const allTimers = document.querySelectorAll('.timer');
+  <script>
+    const allTimers = document.querySelectorAll('.timer');
 
-  // Only countdown timers (skip the first two: Mission Passed + Mission Failed)
-  const targets = [
-    allTimers[2], // 27 Nov
-    allTimers[3], // 30 Nov
-    allTimers[4], // 10 Dec
-    allTimers[5], // 31 Dec
-  ];
+    const targets = [
+      allTimers[2], // 27 Nov
+      allTimers[3], // 30 Nov
+      allTimers[4], // 10 Dec
+      allTimers[5], // 31 Dec
+    ];
 
-  const dates = [
-    '2025-11-27T18:30:00+06:00',
-    '2025-11-30T18:30:00+06:00',
-    '2025-12-10T18:30:00+06:00',
-    '2025-12-31T18:30:00+06:00',
-  ];
+    const dates = [
+      '2025-11-27T18:30:00+06:00',
+      '2025-11-30T18:30:00+06:00',
+      '2025-12-10T18:30:00+06:00',
+      '2025-12-31T18:30:00+06:00',
+    ];
 
-  function pad(n) {
-    return String(n).padStart(2, '0');
-  }
+    function pad(n) {
+      return String(n).padStart(2, '0');
+    }
 
-  function updateAllCountdowns() {
-    const now = new Date();
+    function updateAllCountdowns() {
+      const now = new Date();
 
-    targets.forEach((root, i) => {
-      if (!root) return;
+      targets.forEach((root, i) => {
+        if (!root) return;
 
-      const targetDate = new Date(dates[i]);
-      let diff = targetDate - now;
+        const targetDate = new Date(dates[i]);
+        let diff = targetDate - now;
 
-      if (diff <= 0) {
-        root.querySelector('.days').textContent = '00';
-        root.querySelector('.hours').textContent = '00';
-        root.querySelector('.minutes').textContent = '00';
-        root.querySelector('.seconds').textContent = '00';
-        return;
-      }
+        if (diff <= 0) {
+          root.querySelector('.days').textContent = '00';
+          root.querySelector('.hours').textContent = '00';
+          root.querySelector('.minutes').textContent = '00';
+          root.querySelector('.seconds').textContent = '00';
+          return;
+        }
 
-      const sec = Math.floor(diff / 1000);
-      const d = Math.floor(sec / 86400);
-      const h = Math.floor((sec % 86400) / 3600);
-      const m = Math.floor((sec % 3600) / 60);
-      const s = sec % 60;
+        const sec = Math.floor(diff / 1000);
+        const d = Math.floor(sec / 86400);
+        const h = Math.floor((sec % 86400) / 3600);
+        const m = Math.floor((sec % 3600) / 60);
+        const s = sec % 60;
 
-      root.querySelector('.days').textContent = pad(d);
-      root.querySelector('.hours').textContent = pad(h);
-      root.querySelector('.minutes').textContent = pad(m);
-      root.querySelector('.seconds').textContent = pad(s);
-    });
-  }
+        root.querySelector('.days').textContent = pad(d);
+        root.querySelector('.hours').textContent = pad(h);
+        root.querySelector('.minutes').textContent = pad(m);
+        root.querySelector('.seconds').textContent = pad(s);
+      });
+    }
 
-  updateAllCountdowns();
-  setInterval(updateAllCountdowns, 1000);
-</script>
-
+    updateAllCountdowns();
+    setInterval(updateAllCountdowns, 1000);
+  </script>
 
 </body>
-
 </html>
